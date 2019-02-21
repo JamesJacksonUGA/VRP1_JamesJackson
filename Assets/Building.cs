@@ -18,6 +18,7 @@ public class Building : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("Collision Occured with " + collision.transform.name);
         if(collision.rigidbody == null)
         {
             return;
@@ -28,7 +29,11 @@ public class Building : MonoBehaviour
         {
             return;
         }
+        
         Destroy(this.gameObject);
+        GameManager gm = new GameManager();
+        //when building is hit end the game
+        gm.setInactive();
 
     }
 }
